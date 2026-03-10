@@ -1,0 +1,18 @@
+1. 실행정책 변경
+Node.js를 사용하려면 windows PowerShell을 관리자권한으로 실행 후 입력
+set-executionpolicy remtesigned
+
+2. 모듈 설치
+vs code 터미널 창에 입력
+npm i -g create-react-app
+
+3. 프로젝트 생성
+npx create-react-app 제목
+
+4. 프로젝트 폴더로 이동 후 실행
+cd 제목
+npm start
+
+
+라우터 설치
+ㄴ npm i react-router-dom
