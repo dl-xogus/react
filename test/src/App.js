@@ -12,6 +12,7 @@ function App() {
           <NavLink to="/router">라우팅</NavLink>
         </nav>
       </header>
+
       <main>
         <Routes>
           <Route path='/' element={<Test />} />
