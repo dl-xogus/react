@@ -1,0 +1,35 @@
+body {
+  background-color: #1a1a1a;
+  color: white;
+}
+ul { margin: 0; padding: 0; }
+li { list-style: none; }
+
+.App {
+  text-align: left;
+  width: 70%;
+  margin: 20px auto;
+  line-height: 2;
+}
+
+header {
+  background-color: black;
+  padding: 10px 0;
+  text-align: center;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+  padding: 0 20px;
+}
+
+header a.active {
+  color: yellow;
+}
+
+textarea {
+  background-color: black;
+  color: white;
+  border: none;
+}
