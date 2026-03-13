@@ -1,0 +1,25 @@
+{
+  "todolist": [
+    {
+      "todo": "수정",
+      "done": false,
+      "id": "3ed4"
+    },
+    {
+      "id": "c0da",
+      "todo": "ㅁㅇㄴㄹㄴㄹ",
+      "done": true
+    },
+    {
+      "id": "91c3",
+      "todo": "ㅂㅈㄷㅈㄱㅂㄱ",
+      "done": true
+    },
+    {
+      "id": "0c1f",
+      "todo": "ewarawerw",
+      "done": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

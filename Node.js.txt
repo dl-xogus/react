@@ -20,5 +20,11 @@ npm start
 scss
 ㄴ npm i sass
 
-한번에도 가능
-ㄴ npm i sass react-router-dom
+aixos 모듈 설치
+ㄴ npm i aixos
+
+json-server 모듈 설치
+ㄴ npm i json-server
+
+json-server 생성
+ㄴ npx json-server json이름 --watch --port 3001
