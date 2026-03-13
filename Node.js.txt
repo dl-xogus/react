@@ -16,3 +16,9 @@ npm start
 
 라우터 설치
 ㄴ npm i react-router-dom
+
+scss
+ㄴ npm i sass
+
+한번에도 가능
+ㄴ npm i sass react-router-dom

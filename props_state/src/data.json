@@ -1,0 +1,12 @@
+{
+    "web": [
+        {"id": 1, "title": "SCREEN", "url": "https://dl-xogus.github.io/screen/"},
+        {"id": 2, "title": "Weather Mood", "url": "https://duajd3-lab.github.io/Weather-Mood/index.html"},
+        {"id": 3, "title": "온집", "url": "https://soyoung00.github.io/onjib-project/"}
+    ],
+    "mobile": [
+        {"id": 1, "title": "쇼핑몰", "url": "https://dl-xogus.github.io/screen/"},
+        {"id": 2, "title": "투두리스트", "url": "https://duajd3-lab.github.io/Weather-Mood/index.html"},
+        {"id": 3, "title": "교육콘텐츠", "url": "https://soyoung00.github.io/onjib-project/"}
+    ]
+}
