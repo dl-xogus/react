@@ -1,0 +1,40 @@
+{
+  "todolist": [
+    {
+      "todo": "수정",
+      "done": false,
+      "id": "3ed4"
+    },
+    {
+      "id": "c0da",
+      "todo": "ㅁㅇㄴㄹㄴㄹ",
+      "done": true
+    },
+    {
+      "id": "e0b7",
+      "todo": "wqewqeqwe",
+      "done": true
+    },
+    {
+      "todo": "집에가고싶다",
+      "done": false,
+      "id": "2825"
+    },
+    {
+      "id": "fde1",
+      "todo": "3",
+      "done": false
+    },
+    {
+      "id": "00e0",
+      "todo": "4",
+      "done": false
+    },
+    {
+      "id": "92d1",
+      "todo": "5",
+      "done": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

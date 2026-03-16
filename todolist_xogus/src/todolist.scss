@@ -24,6 +24,12 @@
         list-style: none;
         text-align: left;
 
+        form {
+            display: flex;
+
+            input {font-size: 16px;}
+        }
+
         li {
             border-top: 1px solid gray;
             padding: 15px 0;

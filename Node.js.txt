@@ -13,6 +13,8 @@ npx create-react-app 제목
 cd 제목
 npm start
 
+삭제 하는 법
+ㄴ npm uninstall 모듈이름
 
 라우터 설치
 ㄴ npm i react-router-dom
