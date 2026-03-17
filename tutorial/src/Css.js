@@ -1,4 +1,6 @@
 /* Css.js */
+import * as motion from "motion/react-client"
+import { variants } from "./motion"
 import { useState } from 'react';
 import './css/style.scss';
 
@@ -6,7 +8,11 @@ function Css() {
     let [active, setActive] = useState(true);
 
     return (
-        <div className='App'>
+        <motion.div className='App'
+            variants={variants}
+            initial='initial'
+            animate='animate'
+        >
             <h2>SCSS</h2>
             <div className='color-skyblue'>
                 1) npm i scss (묘듈설치)<br />
@@ -35,7 +41,7 @@ function Css() {
             <div stlye={{ display: active ? 'block' : 'none' }}>
                 팝업창
             </div>
-        </div>
+        </motion.div>
     );
 }
 

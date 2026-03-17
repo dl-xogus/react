@@ -1,0 +1,24 @@
+h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+article {
+  border: 0px solid gray;
+  border-width: 1px 0 1px 0;
+  padding: 100px;
+}
+
+input {
+  width: 60%;
+  border: 1px solid black;
+  margin: 10px;
+}
+input::placeholder {
+  font-size: 11px;
+  text-indent: 10px;
+}
+
+.App {
+  text-align: center;
+}

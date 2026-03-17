@@ -1,13 +1,18 @@
 /* ReactRouter.js */
-import React from 'react'
+import * as motion from "motion/react-client"
+import { variants } from "./motion"
 
 function ReactRouter() {
     return (
-        <div className='App'>
-            ※ a태그를 이용해 페이지 이동하는 것 처럼 리액트안에서 처리하기 <br/>
+        <motion.div className='App'
+            variants={variants}
+            initial='initial'
+            animate='animate'
+        >
+            ※ a태그를 이용해 페이지 이동하는 것 처럼 리액트안에서 처리하기 <br />
 
-            1) 라우터 설치 (npm i react-router-dom) <br/>
-            2) 설치한 모듈을 사용하여 App.js에 코드 작성 <br/>
+            1) 라우터 설치 (npm i react-router-dom) <br />
+            2) 설치한 모듈을 사용하여 App.js에 코드 작성 <br />
             <textarea cols="100" rows="30">
                 {`
 /* App.js */
@@ -42,7 +47,7 @@ function App() {
 export default App;
                 `}
             </textarea>
-        </div>
+        </motion.div>
     )
 }
 

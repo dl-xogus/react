@@ -1,4 +1,6 @@
 import { useState } from "react";
+import * as motion from "motion/react-client"
+import { variants } from "./motion"
 
 let intial = [];
 
@@ -29,7 +31,11 @@ function Etc() {
     };
 
     return (
-        <div className='App'>
+        <motion.div className='App'
+            variants={variants}
+            initial='initial'
+            animate='animate'
+        >
             <h2>Etc</h2>
             <div>
                 <form onSubmit={(e) => { saveFun(e) }}>
@@ -59,7 +65,7 @@ function Etc() {
                     {imgData.map((img, i) => <li key={i}><Image url={img} /></li>)}
                 </ul>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

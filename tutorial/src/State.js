@@ -1,4 +1,6 @@
 import { useState } from "react";
+import * as motion from "motion/react-client"
+import { variants } from "./motion"
 
 function State() {
     /* 변경한 값을 재출력 하려면 useState를 사용 */
@@ -19,7 +21,11 @@ function State() {
     
 
     return (
-        <div className="App">
+        <motion.div className="App"
+            variants={variants}
+            initial='initial'
+            animate='animate'
+        >
             <h2>State</h2>
             <button onClick={incre}>{num}</button>
 
@@ -40,7 +46,7 @@ function State() {
                     }
                 </ul>
             </article>
-        </div>
+        </motion.div>
     )
 }
 
