@@ -1,0 +1,61 @@
+h1 {
+    font-size: 7.5vw;
+    font-weight: 400;
+    padding-top: 200px;
+    line-height: 7vw;
+    font-family: 'Inter';
+}
+
+.page {
+    margin: 0 20%;
+}
+
+.SignUpPage {
+    padding-bottom: 1px;
+
+    article {
+        margin: 130px auto;
+        width: 100%;
+        max-width: 1015px;
+        padding: 200px 20%;
+        border: 1px solid white;
+    
+        h2 {
+            letter-spacing: 8%;
+            padding-bottom: 130px;
+        }
+    
+        p {
+            color: #BEBCBC;
+            span {
+                color: #1F485B;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .textfield {
+        border-bottom: white;
+        color: white;
+    }
+
+    button {
+        background-color: #1f485b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 20px;
+        margin: 30px 0;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,29 @@
+.App {
+    position: relative;
+
+    header {
+        width: 100%;
+        padding: 55px 76px;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        backdrop-filter: blur(5px);
+        z-index: 9999;
+        
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+}
