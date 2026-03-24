@@ -1,18 +1,14 @@
-import axios from 'axios'
-import { useState } from 'react';
-
-import './App.css'
+import './App.scss'
+import TodoHead from './comp/TodoHead';
+import TodoList from './comp/TodoList';
+import TodoInsert from './comp/TodoInsert';
 
 function App() {
-
-  axios.get('http://localhost:4000/todo')
-    .then(res => {
-      console.log(res.data);
-    });
-
   return (
     <div className="App">
-
+      <TodoHead />
+      <TodoList />
+      <TodoInsert />
     </div>
   );
 }

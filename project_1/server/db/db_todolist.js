@@ -6,12 +6,17 @@ const client = new MongoClient(uri);
 
 let db;
 const connectDB = async () => {
-    await client.connect();             // 몽고접속
-    db = client.db('test_project');     // 프로젝트db 활성화
-    console.log('접속완료');
+    try {
+        await client.connect();             // 몽고접속
+        db = client.db('todolist');         // 프로젝트db 활성화
+        console.log('접속완료');
+    }
+    catch (err) {
+        console.error(err);
+    }
 };
 
-const getDB = () => {   // connectDB 함수가 끝나야지만 getDB함수를 실행해 db를 꺼내올수 있게함
+const getDB = () => {
     return db;  
 };
 

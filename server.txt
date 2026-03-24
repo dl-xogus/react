@@ -15,9 +15,12 @@ cd server
 
 - 서버에서는 코드를 변경해도 실시간으로 반영되지않고 서버를 재실행 해야 반영됨
 
-실시간 업데이트 모듈
+실시간 업데이트 모듈 nodemon
 ㄴ npm i nodemon
 ㄴ npx nodemon index.js   (서버 실행)
+
+import 하는 방법
+ㄴ const express = require('express')
 
 exports 하는 방법
 ㄴ module.exports = todolist;
@@ -37,3 +40,29 @@ module.exports = todolist;
 MongoDB
 1. npm i mongodb
 2. 
+
+데이터베이스 구성
+ㄴ database: 프로젝트명
+ㄴ collection: 기능요소(회원가입, 장바구니, 결제 등)
+
+MongoDB 
+    문서 삽입
+    const insertResult = await collection.insertMany([{ a: 1 }, { a: 2 }, { a: 3 }]);
+
+    모든 문서 찾기
+    const findResult = await collection.find({}).toArray();
+
+    쿼리 필터를 사용해 문서 찾기
+    const filteredDocs = await collection.find({ a: 1 }).toArray();
+    
+    문서 업데이트
+    const updateResult = await collection.updateOne({ a: 3 }, { $set: { b: 1 } });
+    
+    문서 삭제
+    const deleteResult = await collection.deleteMany({ a: 3 });
+
+body-parser
+ㄴ npm i body-parser
+ㄴ const bodyParser = require('body-parser');
+ㄴ app.use(bodyParser.urlencoded());
+ㄴ app.use(bodyParser.json());
