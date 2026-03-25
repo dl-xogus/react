@@ -27,13 +27,37 @@ body {
   > div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0 10% 20px;
+    position: relative;
+  }
+
+  .btns {
+    display: flex;
+    gap: 7px;
+    position: absolute;
+    right: 3%;
+    bottom: 0;
+
+    button {
+      width: 60px;
+      border-radius: 10px 10px 0 0;
+      padding: 5px 10px;
+      background-color: white;
+      border: none;
+      border-bottom: none;
+      transition: 0.2s;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
   }
 }
 
 .todolist {
-  padding: 0 10%;
-  height: 500px;
+  padding: 10px 10%;
+  height: 400px;
   overflow-y: scroll;
 }
 
@@ -42,6 +66,11 @@ body {
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px dashed gray;
+
+  &.success {
+    text-decoration: line-through;
+    color: green;
+  }
 }
 
 .todoinsert {

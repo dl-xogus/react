@@ -21,7 +21,7 @@ function TodoInsert() {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit'
-    }).format(today).replaceAll(' ','');
+    }).format(today).replaceAll(' ', '');
 
     const timePart = new Intl.DateTimeFormat('ko-KR', {
       hourCycle: 'h23',
@@ -31,7 +31,6 @@ function TodoInsert() {
     }).format(today);
 
     const date = `${datePart}T${timePart}`;
-
     /* 
       const date = new Intl.DateTimeFormat('ko-KR', {
         year: 'numeric',
@@ -49,7 +48,11 @@ function TodoInsert() {
     */
 
     /* 저장 */
-    save({ content: ip, date });
+    save({ content: ip, isdone: false, date })
+      .then(() => {           // 저장이 끝난 시점에 바로 value값을 비워주기위해 .then()을 사용
+        setIp('');            // value값 비워주기
+        alert('저장완료!');    // 저장완료 메시지
+      });
   };
 
   return (
