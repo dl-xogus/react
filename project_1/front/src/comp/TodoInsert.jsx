@@ -59,7 +59,11 @@ function TodoInsert() {
     <div className="todoinsert">
       <form onSubmit={e => handleSubmit(e)}>
         <input type="text" value={ip} onChange={e => setIp(e.target.value)} />
-        <button>추가</button>
+        <button className="insert-btn">
+          <span className="material-symbols-outlined">
+            add
+          </span>
+        </button>
       </form>
     </div>
   )

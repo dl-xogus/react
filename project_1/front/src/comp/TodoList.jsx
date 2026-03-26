@@ -6,8 +6,6 @@ function TodoList() {
 
   if (!data.length) return <div className="todolist">준비중...</div>  // data가 들어오지 않았을때 대체방법1
 
-  console.log(data);
-
   return (
     <ul className="todolist">
       {

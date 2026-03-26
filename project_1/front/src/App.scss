@@ -1,6 +1,20 @@
-*{box-sizing: border-box;}
-h1, h2, h3 {margin: 0;}
-ul, li {margin: 0; padding: 0; list-style: none;}
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 body {
   background-color: #1a1a1a;
@@ -18,15 +32,19 @@ body {
 .todohead {
   background-color: firebrick;
   color: white;
-  // border-bottom: 1px solid black;
-  
-  > h2 {
-    padding: 30px 0;
+  margin-bottom: 10px;
+
+  .num {
+    text-align: left;
+  }
+
+  >h2 {
+    padding: 30px 0 10px;
     text-transform: uppercase;
   }
-  > div {
+
+  >div {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 10% 20px;
     position: relative;
@@ -36,14 +54,14 @@ body {
     display: flex;
     gap: 7px;
     position: absolute;
-    right: 3%;
+    right: 10%;
     bottom: 0;
 
     button {
       width: 60px;
       border-radius: 10px 10px 0 0;
       padding: 5px 10px;
-      background-color: white;
+      background-color: lightgray;
       border: none;
       border-bottom: none;
       transition: 0.2s;
@@ -51,14 +69,59 @@ body {
       &:hover {
         font-weight: bold;
       }
+
+      &.active {
+        background-color: white;
+        font-weight: bold;
+      }
     }
   }
 }
 
 .todolist {
-  padding: 10px 10%;
+  padding: 0 10% 10px;
   height: 400px;
   overflow-y: scroll;
+
+  .con {
+    display: flex;
+    align-items: center;
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input {
+      height: 25px;
+      font-size: 16px;
+    }
+  }
+
+  .item-btns {
+    display: flex;
+    gap: 5px;
+  }
+
+  button {
+    padding: 5px;
+    border-radius: 9999px;
+    width: 40px;
+    aspect-ratio: 1 / 1;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: lightgray;
+    }
+  }
 }
 
 .todoitem {
@@ -66,25 +129,41 @@ body {
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px dashed gray;
-
-  &.success {
-    text-decoration: line-through;
-    color: green;
-  }
 }
 
 .todoinsert {
-  border-top: 1px solid black;
-  margin-top: 10px;
+  border-top: 1px solid gray;
   padding: 20px 10%;
 
   form {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
 
     input {
       width: 90%;
+      font-size: 16px;
+      height: 30px;
+    }
+
+    .insert-btn {
+      padding: 5px;
+      border-radius: 9999px;
+      width: 40px;
+      aspect-ratio: 1 / 1;
+      border: none;
+      background-color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: lightgray;
+      }
     }
   }
 }

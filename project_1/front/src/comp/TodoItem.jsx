@@ -9,34 +9,56 @@ function TodoItem({ item }) {
   let [editText, setEditText] = useState("");
 
   return (
-    <li className={item.isdone ? 'todoitem success' : 'todoitem'}>
+    <li className='todoitem' style={{ color: item.isdone ? 'green' : 'black' }}>
       {
         /* 수정할 값을 입력할 input으로 변경 */
         editId == item._id ?
           <form onSubmit={e => { e.preventDefault(); update(item._id, editText, setEditId); }}>
             <input autoFocus type="text" defaultValue={item.content} onChange={(e) => setEditText(e.target.value)} />
-            <button>저장</button>
+            <button>
+              <span className="material-symbols-outlined">
+                add
+              </span>
+            </button>
           </form>
           :
-          item.content
+          <p className="con">{item.content}</p>
       }
-      <div>
+      <div className="item-btns">
         {
           /* 수정 버튼 누르면 비활성화 || 완료되면 수정 버튼 비활성화 */
           editId == item._id || item.isdone == true ?
-            <button disabled>수정</button>
+            <button disabled>
+              <span className="material-symbols-outlined">
+                edit
+              </span>
+            </button>
             :
-            <button onClick={() => { setEditId(item._id); setEditText(item.todo); }}>
-              수정
+            <button onClick={() => { setEditId(item._id); }}>
+              <span className="material-symbols-outlined">
+                edit
+              </span>
             </button>
         }
-        <button onClick={() => del(item._id)}>삭제</button>
+        <button onClick={() => del(item._id)}>
+          <span className="material-symbols-outlined">
+            delete
+          </span>
+        </button>
         {
           /* 완료되면 완료 버튼 비활성화 */
           item.isdone == true ?
-            <button disabled>완료</button>
+            <button disabled>
+              <span className="material-symbols-outlined">
+                check
+              </span>
+            </button>
             :
-            <button onClick={() => completeTodo(item._id)}>완료</button>
+            <button onClick={() => completeTodo(item._id)}>
+              <span className="material-symbols-outlined">
+                check
+              </span>
+            </button>
         }
       </div>
     </li>
@@ -44,5 +66,3 @@ function TodoItem({ item }) {
 }
 
 export default TodoItem
-
-

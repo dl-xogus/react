@@ -1,15 +1,13 @@
 import { create } from 'zustand';
 import axios from 'axios';
 
-
-
 const TodoStore = create((set) => ({
     data: [],
     save: async (value) => {
         try {
-            let res = await axios.post('http://localhost:4000/todo', value);
+            let res = await axios.post(process.env.REACT_APP_APIURL, value);
             set((item) => { return { data: [...item.data, res.data.data] } });
-            /* 
+            /*
                 server/todolist.js의 todolist.post()에서 서버에 저장하고 front로 보내줄 때
                 res.send({ success: true, data });
                 이렇게 보내줬기 때문에 res.data.data로 접근해야 함
@@ -33,7 +31,7 @@ const TodoStore = create((set) => ({
             아니면 axios자체에 .catch()라는 매서드를 사용하면 가능
 
             // axios의 .catch() 매서드 사용방법
-            axios.post('http://localhost:4000/todo', value)
+            axios.post('${process.env.REACT_APP_APIURL}', value)
                 .then(res => {
                     if (!res.data.success) {
                         throw new Error(res.data.msg);
@@ -44,23 +42,47 @@ const TodoStore = create((set) => ({
                 })
         */
     },
-    get: async () => {
-        const res = await axios.get('http://localhost:4000/todo');
-        set({ data: res.data });        // zustand의 매개변수 set을 이용해 접근가능
+    get: async (value) => {
+        const res = await axios.get(`${process.env.REACT_APP_APIURL}?sort=${value}`);
+        /* 
+            (REACT_APP_APIURL = http://localhost:4000/todo)
+            .env에서 선언한 APIURL을 대신 넣어줌
+            process.env. 를 붙혀야 환경변수인걸 인식함
+        */
+        set({ data: res.data });
     },
     update: async (id, editText, setEditId) => {
+        /* 날짜 */
+        const today = new Date();
+
+        const datePart = new Intl.DateTimeFormat('ko-KR', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        }).format(today).replaceAll(' ', '');
+
+        const timePart = new Intl.DateTimeFormat('ko-KR', {
+            hourCycle: 'h23',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        }).format(today);
+
+        const date = `${datePart}T${timePart}`;
+
         try {
-            const res = await axios.put(`http://localhost:4000/todo/state?id=${id}`, { content: editText });
+            const res = await axios.put(`${process.env.REACT_APP_APIURL}/state?id=${id}`, { content: editText, date });
             if (!res.data.success) throw new Error(res.data.msg);
             set(item => {
                 let updateData = item.data.map(obj => {
                     if (obj._id == id) {
                         obj.content = editText;
+                        obj.date = date;
                     }
                     return obj;
                 });
-                // id값 초기화 (안해주면 id가 계속 남아 3중연산자에서 수정 후에 수정된 할일이 출력 안되고 입력창 출력이 계속 실행됨)
-                setEditId(null);        
+                // id값 초기화 (안해주면 id가 계속 남아 3항연산자에서 수정 후에 수정된 할일이 출력 안되고 입력창 출력이 계속 실행됨)
+                setEditId(null);
 
                 return { data: updateData };
             });
@@ -71,7 +93,7 @@ const TodoStore = create((set) => ({
     },
     del: async (id) => {
         try {
-            const res = await axios.delete(`http://localhost:4000/todo?id=${id}`);
+            const res = await axios.delete(`${process.env.REACT_APP_APIURL}?id=${id}`);
             if (!res.data.success) throw new Error(res.data.msg);
             set(item => { return { data: item.data.filter(obj => obj._id != id) } });
         }
@@ -81,7 +103,7 @@ const TodoStore = create((set) => ({
     },
     completeTodo: async (id) => {
         try {
-            const res = await axios.put(`http://localhost:4000/todo/state?id=${id}`, { isdone: true });
+            const res = await axios.put(`${process.env.REACT_APP_APIURL}/state?id=${id}`, { isdone: true });
             if (!res.data.success) throw new Error(res.data.msg);
             set(item => {
                 let updateData = item.data.map(obj => {

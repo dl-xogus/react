@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 function App() {
   const { get } = TodoStore();
 
-  useEffect(() => { get() }, []);   // get()을 그냥 사용하면 무한 렌더링이 발생함
+  useEffect(() => { get('all') }, []);   // get()을 그냥 사용하면 무한 렌더링이 발생함
 
   return (
     <div className="App">

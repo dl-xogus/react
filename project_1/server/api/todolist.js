@@ -3,9 +3,18 @@ const { getDB } = require('../db/db_todolist.js');
 const { ObjectId } = require('mongodb');
 const todolist = express.Router();      // 페이지 분할
 
-/* 가져오기 */
+/* 전체 가져오기 */
 todolist.get('/', async (req, res) => {
-  const data = await getDB().collection('todos').find().toArray();   // 실데이터가 들어있는 콜랙션 조회
+  const sort = req.query.sort;
+  let filter = '';
+
+  switch (sort) {
+    case 'all': filter = {}; break;
+    case 'true': filter = { isdone: true }; break;
+    default: filter = { isdone: false };
+  }
+
+  const data = await getDB().collection('todos').find(filter).toArray();   // 실데이터가 들어있는 콜랙션 조회
   res.send(data);
 })
 
