@@ -1,0 +1,6 @@
+부모 (생성하는 방법)
+ㄴ export const MyContext = createContext();
+
+자식 (꺼내서 사용하는 방법) (자식의 자식으로도 바로 꺼내서 사용가능함)
+ㄴ const value = useContext(MyContext);
+
